@@ -1,4 +1,5 @@
 using CQRSDemo.Data;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace CQRSDemo
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddCors();
             services.AddControllers();
+            services.AddMediatR(typeof(Startup).Assembly);
             services.AddScoped<IProductRepository,ProductRepository>();
             services.AddSwaggerGen();
         }
