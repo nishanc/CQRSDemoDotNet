@@ -23,9 +23,19 @@ namespace CQRSDemo.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            var values  = await _productRepository.GetProducts();
-            return Ok(values);
+            var products  = await _productRepository.GetProducts();
+            return Ok(products);
         }
 
+        /// <summary>
+        /// Get product by id.
+        /// </summary>
+        // GET api/product/1
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var product  = await _productRepository.GetProduct(id);
+            return Ok(product);
+        }
     }
 }

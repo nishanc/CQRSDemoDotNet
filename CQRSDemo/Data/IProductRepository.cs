@@ -7,5 +7,6 @@ namespace CQRSDemo.Data
     public interface IProductRepository
     {
         Task<List<Product>> GetProducts();
+        Task<Product> GetProduct(int id);
     }
 }

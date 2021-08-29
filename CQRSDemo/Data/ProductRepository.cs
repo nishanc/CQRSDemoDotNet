@@ -13,5 +13,9 @@ namespace CQRSDemo.Data
         {
             return await _context.Products.ToListAsync();
         }
+        public async Task<Product> GetProduct(int id)
+        {
+            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+        }
     }
 }

@@ -1,4 +1,4 @@
-# Understanding CQRS Pattern using .NET Core
+# Understanding CQRS Pattern using .NET 5
 ### Command and Query Responsibility Segregation with C# 9 & MediatR
 ----
 
