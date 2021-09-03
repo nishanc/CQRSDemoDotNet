@@ -1,4 +1,5 @@
 using CQRSDemo.Data;
+using CQRSDemo.Helpers;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +26,7 @@ namespace CQRSDemo
             services.AddCors();
             services.AddControllers();
             services.AddMediatR(typeof(Startup).Assembly);
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             services.AddScoped<IProductRepository,ProductRepository>();
             services.AddSwaggerGen();
         }
