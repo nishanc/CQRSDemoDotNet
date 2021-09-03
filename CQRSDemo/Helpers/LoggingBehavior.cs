@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -17,9 +18,18 @@ namespace CQRSDemo.Helpers
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             _logger.LogInformation($"Handling {typeof(TRequest).Name}");
-            var response = await next();
-            _logger.LogInformation($"Handled {typeof(TResponse).Name}");
-
+            var stopwatch = Stopwatch.StartNew();
+            TResponse response;
+            try
+            {
+                response = await next();
+            }
+            finally
+            {
+                stopwatch.Stop();
+                _logger.LogInformation(
+                    $"Handled {typeof(TResponse).Name}; Execution time = {stopwatch.ElapsedMilliseconds}ms");
+            }
             return response;
         }
     }
