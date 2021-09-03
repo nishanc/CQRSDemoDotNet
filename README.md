@@ -6,4 +6,4 @@ Having a grasp of common architectural patterns is essential to designing softwa
 
 The following blog is a brief overview of the CQRS architectural pattern.
 
-Read the related blog - https://nishanc.medium.com
+Read the related blog - [https://nishanc.medium.com/understanding-cqrs-pattern-using-net-core-mediatr](https://nishanc.medium.com/understanding-cqrs-pattern-using-net-core-mediatr-3658263cfb16)
